@@ -1,0 +1,233 @@
+#include <dt-bindings/gpio/gpio.h>
+
+/dts-v1/;
+/plugin/;
+
+/ {
+
+
+	fragment@0 {
+		target-path = "/soc";
+		__overlay__ {
+			isp_vsi_subdev: isp_vsi_subdev {
+				id = <0>;
+				status = "okay";
+				compatible = "verisilicon,isp";
+				ports {
+					#address-cells = <1>;
+					#size-cells = <0>;
+					/delete-property/port@1;
+					/delete-property/port@2;
+					/delete-property/port@3;
+					/delete-property/port@4;
+					port@6 {
+						reg = <6>;
+						#address-cells = <1>;
+						#size-cells = <0>;
+						isp_vsi_subdev_ep6: endpoint@6 {
+							reg = <6>;
+							remote-endpoint = <&isp_dewarp_subdev_ep0>;
+						};
+					};
+					port@7 {
+						reg = <7>;
+						#address-cells = <1>;
+						#size-cells = <0>;
+						isp_vsi_subdev_ep7: endpoint@7 {
+							reg = <7>;
+							remote-endpoint = <&isp_dewarp_subdev_ep2>;
+						};
+					};
+					port@8 {
+						reg = <8>;
+						#address-cells = <1>;
+						#size-cells = <0>;
+						isp_vsi_subdev_ep8: endpoint@8 {
+							reg = <8>;
+							remote-endpoint = <&isp_dewarp_subdev_ep4>;
+						};
+					};
+					port@9 {
+						reg = <9>;
+						#address-cells = <1>;
+						#size-cells = <0>;
+						isp_vsi_subdev_ep9: endpoint@9 {
+							reg = <9>;
+							remote-endpoint = <&isp_dewarp_subdev_ep6>;
+						};
+					};
+				};
+			};
+		};
+	};
+
+	fragment@1 {
+		target-path = "/soc";
+		__overlay__ {
+			isp_vsi_video: isp_vsi_video {
+				status = "okay";
+				compatible = "verisilicon,video";
+				ports {
+					/delete-property/port@0;
+					/delete-property/port@1;
+					/delete-property/port@2;
+					/delete-property/port@3;
+					#address-cells = <1>;
+					#size-cells = <0>;
+					port@0 {
+						reg = <0>;
+						#address-cells = <1>;
+						#size-cells = <0>;
+						isp_vsi_video_ep0: endpoint@0 {
+							reg = <0>;
+							remote-endpoint = <&isp_dewarp_subdev_ep1>;
+						};
+					};
+					port@1 {
+						reg = <1>;
+						#address-cells = <1>;
+						#size-cells = <0>;
+						isp_vsi_video_ep1: endpoint@1 {
+							reg = <1>;
+							remote-endpoint = <&isp_dewarp_subdev_ep3>;
+						};
+					};
+					port@2 {
+						reg = <2>;
+						#address-cells = <1>;
+						#size-cells = <0>;
+						isp_vsi_video_ep2: endpoint@2 {
+							reg = <2>;
+							remote-endpoint = <&isp_dewarp_subdev_ep5>;
+						};
+					};
+					port@3 {
+						reg = <3>;
+						#address-cells = <1>;
+						#size-cells = <0>;
+						isp_vsi_video_ep3: endpoint@3 {
+							reg = <3>;
+							remote-endpoint = <&isp_dewarp_subdev_ep7>;
+						};
+					};
+				};
+			};
+        };
+	};
+
+	fragment@2 {
+		target-path = "/soc";
+		__overlay__ {
+			isp_dewarp_subdev: isp_dewarp_subdev {
+				id = <0>;
+				status = "okay";
+				compatible = "syna,dolphin-dewarp";
+				cisHwin = <0x8>;
+				cisVwin = <0x10>;
+				disHwin = <0x30>;
+				disVwin = <0x30>;
+				disHgrid = <0x8>;
+				disVgrid = <0x10>;
+				cisMatSize = <0x80>;
+				cisBlkHtotal = <0x1e0>;
+				cisBlkVtotal = <0x87>;
+				inWidth = <0xF00>;
+				outWidth = <0xF00>;
+				inHeight = <0x870>;
+				outHeight = <0x870>;
+				maxDisBlocks = <0x56>;
+				disV4H2scan = <0>;
+				biCubicOff = <0>;
+				cisBsize = <1>;
+				limitCbuff = <1>;
+				disLumaTiles = <0x24>;
+				disChromaTiles = <0x12>;
+				disBlkSize = <0x900>;
+				disBlkChromaSize = <0x900>;
+				blankLuma = <0>;
+				blankChroma = <0x80>;
+				validDisBlks = <0x2c14>;
+				inBitDepth = <0>;
+				outBitDepth = <0>;
+				inFmt = <8>;
+				outFmt = <8>;
+				ports {
+					#address-cells = <1>;
+					#size-cells = <0>;
+					port@0 {
+						reg = <0>;
+						#address-cells = <1>;
+						#size-cells = <0>;
+						isp_dewarp_subdev_ep0: endpoint@0 {
+							reg = <0>;
+							remote-endpoint = <&isp_vsi_subdev_ep6>;
+						};
+					};
+					port@1 {
+						reg = <1>;
+						#address-cells = <1>;
+						#size-cells = <0>;
+						isp_dewarp_subdev_ep1: endpoint@1 {
+							reg = <1>;
+							remote-endpoint = <&isp_vsi_video_ep0>;
+						};
+					};
+					port@2 {
+						reg = <2>;
+						#address-cells = <1>;
+						#size-cells = <0>;
+						isp_dewarp_subdev_ep2: endpoint@2 {
+							reg = <2>;
+							remote-endpoint = <&isp_vsi_subdev_ep7>;
+						};
+					};
+					port@3 {
+						reg = <3>;
+						#address-cells = <1>;
+						#size-cells = <0>;
+						isp_dewarp_subdev_ep3: endpoint@3 {
+							reg = <3>;
+							remote-endpoint = <&isp_vsi_video_ep1>;
+						};
+					};
+					port@4 {
+						reg = <4>;
+						#address-cells = <1>;
+						#size-cells = <0>;
+						isp_dewarp_subdev_ep4: endpoint@4 {
+							reg = <4>;
+							remote-endpoint = <&isp_vsi_subdev_ep8>;
+						};
+					};
+					port@5 {
+						reg = <5>;
+						#address-cells = <1>;
+						#size-cells = <0>;
+						isp_dewarp_subdev_ep5: endpoint@5 {
+							reg = <5>;
+							remote-endpoint = <&isp_vsi_video_ep2>;
+						};
+					};
+					port@6 {
+						reg = <6>;
+						#address-cells = <1>;
+						#size-cells = <0>;
+						isp_dewarp_subdev_ep6: endpoint@6 {
+							reg = <6>;
+							remote-endpoint = <&isp_vsi_subdev_ep9>;
+						};
+					};
+					port@7 {
+						reg = <7>;
+						#address-cells = <1>;
+						#size-cells = <0>;
+						isp_dewarp_subdev_ep7: endpoint@7 {
+							reg = <7>;
+							remote-endpoint = <&isp_vsi_video_ep3>;
+						};
+					};
+				};
+			};
+		};
+	};
+};
