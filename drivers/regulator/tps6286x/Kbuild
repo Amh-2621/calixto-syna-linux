@@ -1,0 +1,9 @@
+# SPDX-License-Identifier: GPL-2.0
+# Copyright (C) 2021 Synaptics Incorporated
+
+#
+# kernel module: tps6286x.ko
+#
+
+obj-m += tps6286x.o
+obj-m += tps6287x.o

@@ -1,0 +1,8 @@
+# SPDX-License-Identifier: GPL-2.0
+# Copyright (C) 2021 Synaptics Incorporated
+
+#
+# kernel module: rpi-panel-attiny-regulator.ko
+#
+
+obj-m += rpi-panel-attiny-regulator.o

@@ -21,9 +21,9 @@
 #include <linux/regmap.h>
 #include <linux/slab.h>
 
-#include "../core.h"
-#include "../pinconf.h"
-#include "../pinctrl-utils.h"
+#include "core.h"
+#include "pinconf.h"
+#include "pinctrl-utils.h"
 #include "berlin.h"
 
 struct berlin_pinctrl {

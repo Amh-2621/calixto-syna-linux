@@ -1,0 +1,15 @@
+# SPDX-License-Identifier: GPL-2.0
+# Copyright (C) 2021 Synaptics Incorporated
+
+#
+# kernel module: syna-clk.ko
+#
+
+MODULE_NAME ?= syna-clk
+
+OBJS := clk.o \
+		gate.o
+
+obj-m += $(MODULE_NAME).o
+
+$(MODULE_NAME)-objs  = $(OBJS)
