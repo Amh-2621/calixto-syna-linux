@@ -1,0 +1,31 @@
+# SPDX-License-Identifier: GPL-2.0-only
+
+config SYNA_DOLPHIN_PLL
+	tristate "Synaptics DOLPHIN pll drivers"
+	depends on ARCH_BERLIN
+	help
+	  Build the pll drivers for berlin DOLPHIN/PLATYPUS SOCs.
+
+config SYNA_CLK_BASE
+	tristate "Synaptics switch/gate base drivers"
+	depends on ARCH_BERLIN
+	help
+	  Build the base clk driver for synaptics SOCs.
+
+config SYNA_MYNA2_CLK
+        tristate "Synaptics MYNA2 SOC's switch/gate clk drivers"
+        depends on SYNA_CLK_BASE
+        help
+          Build the clk drivers for berlin MYNA2 SOCs.
+
+config SYNA_PLATYPUS_CLK
+	tristate "Synaptics PLATYPUS SOC's switch/gate clk drivers"
+	depends on SYNA_CLK_BASE
+	help
+	  Build the clk drivers for berlin PLATYPUS SOCs.
+
+config SYNA_DOLPHIN_CLK
+	tristate "Synaptics DOLPHIN SOC's switch/gate clk drivers"
+	depends on SYNA_CLK_BASE
+	help
+	  Build the clk drivers for berlin DOLPHIN SOCs.

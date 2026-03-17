@@ -1,0 +1,10 @@
+# SPDX-License-Identifier: GPL-2.0-only
+obj-$(CONFIG_PINCTRL_BERLIN)		+= berlin.o
+obj-$(CONFIG_PINCTRL_BERLIN_BG2)	+= berlin-bg2.o
+obj-$(CONFIG_PINCTRL_BERLIN_BG2CD)	+= berlin-bg2cd.o
+obj-$(CONFIG_PINCTRL_BERLIN_BG2Q)	+= berlin-bg2q.o
+obj-$(CONFIG_PINCTRL_BERLIN_BG4CT)	+= berlin-bg4ct.o
+obj-$(CONFIG_PINCTRL_AS370)		+= pinctrl-as370.o
+obj-$(CONFIG_PINCTRL_MYNA2)		+= pinctrl-myna2.o
+obj-$(CONFIG_PINCTRL_PLATYPUS)		+= pinctrl-platypus.o
+obj-$(CONFIG_PINCTRL_DOLPHIN)		+= pinctrl-dolphin.o
